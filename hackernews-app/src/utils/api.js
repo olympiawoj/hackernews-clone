@@ -1,6 +1,6 @@
 export function fetchStory(id) {
   const storyEndpoint = `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty"`;
-  return fetch(storyEndpoint).then(res => res.json);
+  return fetch(storyEndpoint).then(res => res.json());
 }
 
 export function fetchTopItems() {
