@@ -47,12 +47,12 @@ class Top extends React.Component {
           let dateTime = new Date(time * 1000);
           dateTime = moment(dateTime).format("H:mm A");
           return (
-            <>
+            <div key={url}>
               <h2>{title}</h2>
               <p>
                 by {by} on {date}, {dateTime} with {descendants} comments
               </p>
-            </>
+            </div>
           );
         })}
       </div>
