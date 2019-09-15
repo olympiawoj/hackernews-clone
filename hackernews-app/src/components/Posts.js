@@ -37,7 +37,7 @@ class Top extends React.Component {
     }
 
     if (this.state.error === true) {
-      return <h1>There is an error</h1>;
+      return <h1>Failed to fetch {this.props.type} stories</h1>;
     }
     return (
       <div className="App">
