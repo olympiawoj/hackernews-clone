@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
-import Top from "./components/Top";
-import New from "./components/New";
+import Posts from "./components/Posts.js";
 import Nav from "./components/Nav";
 
 class App extends React.Component {
@@ -12,8 +11,16 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Nav></Nav>
-          <Route exact path="/" render={() => <Top type="top"></Top>}></Route>
-          <Route exact path="/new" component={New}></Route>
+          <Route
+            exact
+            path="/"
+            render={() => <Posts type="top"></Posts>}
+          ></Route>
+          <Route
+            exact
+            path="/new"
+            render={() => <Posts type="new"></Posts>}
+          ></Route>
         </div>
       </Router>
     );
