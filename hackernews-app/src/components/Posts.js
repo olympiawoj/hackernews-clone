@@ -9,7 +9,8 @@ class Top extends React.Component {
     super(props);
     this.state = {
       topStories: [],
-      loading: true
+      loading: true,
+      error: false
     };
   }
   componentDidMount() {
@@ -23,12 +24,20 @@ class Top extends React.Component {
       })
       .catch(error => {
         console.log("error");
+        this.setState({
+          loading: false,
+          error: true
+        });
       });
   }
 
   render() {
     if (this.state.loading === true) {
       return <Loading text="Battling" />;
+    }
+
+    if (this.state.error === true) {
+      return <h1>There is an error</h1>;
     }
     return (
       <div className="App">

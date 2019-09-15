@@ -21,6 +21,14 @@ export function fetchStories(type) {
         return ids.slice(0, 50);
       })
       .then(ids => Promise.all(ids.map(fetchStory)))
+    //always set equal to promises arr
+    //   .then(ids => {
+    //     const promises = [];
+    //     ids.map(id => {
+    //       promises.push(fetchStory);
+    //     });
+    //     Promise.all(promises);
+    //   })
   );
 
   // .then(ids => console.log(ids));
