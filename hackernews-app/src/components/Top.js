@@ -14,7 +14,7 @@ class Top extends React.Component {
   }
   componentDidMount() {
     console.log("cdm running top");
-    fetchStories("top")
+    fetchStories(this.props.type)
       .then(topStories => {
         this.setState({
           topStories: topStories,
