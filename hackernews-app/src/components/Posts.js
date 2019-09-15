@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchStories, fetchStory } from "../utils/api";
+import { fetchStories } from "../utils/api";
 import Loading from "./Loading";
 
 var moment = require("moment");
@@ -39,6 +39,7 @@ class Top extends React.Component {
     if (this.state.error === true) {
       return <h1>Failed to fetch {this.props.type} stories</h1>;
     }
+
     return (
       <div className="App">
         <h1>Axios vs. Fetch</h1>
@@ -57,16 +58,16 @@ class Top extends React.Component {
           } = story;
 
           var date = new Date(time * 1000).toLocaleDateString("en-US");
-          //   let dateTime = new Date(time * 1000).toLocaleTimeString([], {
-          //     hour: "2-digit",
-          //     minute: "2-digit"
-          //   });
 
           let dateTime = new Date(time * 1000);
           dateTime = moment(dateTime).format("H:mm A");
           return (
             <div key={id}>
-              <h2>{title}</h2>
+              <h2>
+                <a href={url} target="_blank">
+                  {title}
+                </a>
+              </h2>
               <p>
                 by {by} on {date}, {dateTime} with {descendants} comments
               </p>
