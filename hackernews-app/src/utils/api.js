@@ -3,12 +3,11 @@ export function fetchStory(id) {
   return fetch(storyEndpoint).then(res => res.json());
 }
 
-export function fetchTopItems() {
-  const topEndpoint =
-    "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
+export function fetchStories(type) {
+  const endpoint = `https://hacker-news.firebaseio.com/v0/${type}stories.json?print=pretty`;
   //why return fetch?
   return (
-    fetch(topEndpoint)
+    fetch(endpoint)
       // .then(res => console.log(res))
       .then(res => res.json())
       //res is a json object of IDs
@@ -21,6 +20,8 @@ export function fetchTopItems() {
         console.log(ids);
         return ids.slice(0, 50);
       })
+      .then(ids => Promise.all(ids.map(fetchStory)))
   );
+
   // .then(ids => console.log(ids));
 }

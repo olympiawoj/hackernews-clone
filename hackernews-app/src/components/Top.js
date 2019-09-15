@@ -1,5 +1,7 @@
 import React from "react";
-import { fetchTopItems, fetchStory } from "../utils/api";
+import { fetchStories, fetchStory } from "../utils/api";
+import Loading from "./Loading";
+
 var moment = require("moment");
 
 class Top extends React.Component {
@@ -7,25 +9,32 @@ class Top extends React.Component {
     super(props);
     this.state = {
       topStories: [],
-      loading: false
+      loading: true
     };
   }
   componentDidMount() {
-    fetchTopItems().then(ids =>
-      ids.map(id => {
-        fetchStory(id).then(story => {
-          this.setState({ topStories: [...this.state.topStories, story] });
+    console.log("cdm running top");
+    fetchStories("top")
+      .then(topStories => {
+        this.setState({
+          topStories: topStories,
+          loading: false
         });
       })
-    );
+      .catch(error => {
+        console.log("error");
+      });
   }
 
   render() {
+    if (this.state.loading === true) {
+      return <Loading text="Battling" />;
+    }
     return (
       <div className="App">
         <h1>Axios vs. Fetch</h1>
         {this.state.topStories.map(story => {
-          //   console.log(story);
+          console.log(story);
           const {
             by,
             descendants,
@@ -47,7 +56,7 @@ class Top extends React.Component {
           let dateTime = new Date(time * 1000);
           dateTime = moment(dateTime).format("H:mm A");
           return (
-            <div key={url}>
+            <div key={id}>
               <h2>{title}</h2>
               <p>
                 by {by} on {date}, {dateTime} with {descendants} comments
