@@ -1,6 +1,13 @@
+export function getUser(username) {
+  const userEndpoint = `https://hacker-news.firebaseio.com/v0/user/${username}.json?print=pretty`;
+  return fetch(userEndpoint).then(res => res.json());
+}
+
 export function fetchStory(id) {
   const storyEndpoint = `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty"`;
-  return fetch(storyEndpoint).then(res => res.json());
+  return fetch(storyEndpoint).then(res => {
+    return res.json();
+  });
 }
 
 export function fetchStories(type) {
@@ -21,7 +28,8 @@ export function fetchStories(type) {
         return ids.slice(0, 50);
       })
       .then(ids => Promise.all(ids.map(fetchStory)))
-    //always set equal to promises arr
+    //always create array of promises
+    //pass an array of promises to Promises.all
     //   .then(ids => {
     //     const promises = [];
     //     ids.map(id => {

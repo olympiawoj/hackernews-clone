@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchStories } from "../utils/api";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 var moment = require("moment");
 
@@ -44,7 +45,7 @@ class Top extends React.Component {
       <div className="App">
         <h1>Axios vs. Fetch</h1>
         {this.state.topStories.map(story => {
-          console.log(story);
+          // console.log(story);
           const {
             by,
             descendants,
@@ -69,7 +70,9 @@ class Top extends React.Component {
                 </a>
               </h2>
               <p>
-                by {by} on {date}, {dateTime} with {descendants} comments
+                by <Link to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime}{" "}
+                with
+                {descendants} comments
               </p>
             </div>
           );

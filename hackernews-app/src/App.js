@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Posts from "./components/Posts.js";
 import Nav from "./components/Nav";
+import User from "./components/User";
 
 class App extends React.Component {
   componentDidMount() {}
@@ -21,6 +22,7 @@ class App extends React.Component {
             path="/new"
             render={() => <Posts type="new"></Posts>}
           ></Route>
+          <Route path="/user" component={User}></Route>
         </div>
       </Router>
     );
