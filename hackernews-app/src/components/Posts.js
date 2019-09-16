@@ -1,9 +1,8 @@
 import React from "react";
 import { fetchStories } from "../utils/api";
+import { formatDate, formatDatetime } from "../utils/helpers";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
-
-var moment = require("moment");
 
 class Top extends React.Component {
   constructor(props) {
@@ -58,10 +57,9 @@ class Top extends React.Component {
             url
           } = story;
 
-          var date = new Date(time * 1000).toLocaleDateString("en-US");
+          var date = formatDate(time);
+          var dateTime = formatDatetime(time);
 
-          let dateTime = new Date(time * 1000);
-          dateTime = moment(dateTime).format("H:mm A");
           return (
             <div key={id}>
               <h2>
@@ -71,8 +69,7 @@ class Top extends React.Component {
               </h2>
               <p>
                 by <Link to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime}{" "}
-                with
-                {descendants} comments
+                with {descendants} comments
               </p>
             </div>
           );

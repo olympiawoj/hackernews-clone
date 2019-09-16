@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "./Loading";
 import { getUser } from "../utils/api";
+import { formatDate, formatDatetime } from "../utils/helpers";
 import queryString from "query-string";
 
 export default class User extends React.Component {
@@ -31,8 +32,16 @@ export default class User extends React.Component {
 
     return (
       <>
-        <h1>sup</h1>
-        {loadingUser === true ? <Loading></Loading> : <h1>{userInfo.id}</h1>}
+        {loadingUser === true ? (
+          <Loading></Loading>
+        ) : (
+          <>
+            <h1>{userInfo.id}</h1>
+            joined {formatDate(userInfo.created)},{" "}
+            {formatDatetime(userInfo.created)} has {userInfo.karma} karma
+            {userInfo.about}
+          </>
+        )}
       </>
     );
   }
