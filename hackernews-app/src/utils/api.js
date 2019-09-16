@@ -1,6 +1,8 @@
 export function getUser(username) {
   const userEndpoint = `https://hacker-news.firebaseio.com/v0/user/${username}.json?print=pretty`;
-  return fetch(userEndpoint).then(res => res.json());
+  return fetch(userEndpoint).then(res => {
+    return res.json();
+  });
 }
 
 export function fetchStory(id) {
