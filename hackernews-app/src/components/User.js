@@ -37,9 +37,11 @@ export default class User extends React.Component {
         ) : (
           <>
             <h1>{userInfo.id}</h1>
-            joined {formatDate(userInfo.created)},{" "}
-            {formatDatetime(userInfo.created)} has {userInfo.karma} karma
-            {userInfo.about}
+            <p>
+              joined {formatDate(userInfo.created)},{" "}
+              {formatDatetime(userInfo.created)} has {userInfo.karma} karma
+            </p>
+            <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
           </>
         )}
       </>
