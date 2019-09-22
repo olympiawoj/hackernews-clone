@@ -10,7 +10,7 @@ export default function PostMetaInfo({ by, time, id, descendants }) {
     <div>
       <p>
         by <Link to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime} with{" "}
-        {descendants} comments
+        <Link to={`/post?id=${id}`}>{descendants}</Link> comments
       </p>
     </div>
   );

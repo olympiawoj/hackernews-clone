@@ -4,6 +4,7 @@ import "./App.css";
 import Posts from "./components/Posts.js";
 import Nav from "./components/Nav";
 import User from "./components/User";
+import Post from "./components/Post";
 
 class App extends React.Component {
   componentDidMount() {}
@@ -22,6 +23,7 @@ class App extends React.Component {
             path="/new"
             render={() => <Posts type="new"></Posts>}
           ></Route>
+          <Route path="/post" component={Post}></Route>
           <Route path="/user" component={User}></Route>
         </div>
       </Router>

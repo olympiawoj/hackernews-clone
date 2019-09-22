@@ -30,7 +30,6 @@ class Loading extends React.Component {
     return (
       <>
         <h1>{this.state.content}</h1>
-        <h2>Hi</h2>
       </>
     );
   }
