@@ -1,13 +1,14 @@
-export function getUser(username) {
+export function fetchUser(username) {
   const userEndpoint = `https://hacker-news.firebaseio.com/v0/user/${username}.json?print=pretty`;
   return fetch(userEndpoint).then(res => {
     return res.json();
   });
 }
 
-export function fetchStory(id) {
-  const storyEndpoint = `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty"`;
-  return fetch(storyEndpoint).then(res => {
+//item - stories, comments, jobs, ask HNs, and even polls are just items
+export function fetchItem(id) {
+  const itemEndpoint = `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty"`;
+  return fetch(itemEndpoint).then(res => {
     return res.json();
   });
 }
@@ -29,7 +30,7 @@ export function fetchStories(type) {
         console.log(ids);
         return ids.slice(0, 50);
       })
-      .then(ids => Promise.all(ids.map(fetchStory)))
+      .then(ids => Promise.all(ids.map(fetchItem)))
     //always create array of promises
     //pass an array of promises to Promises.all
     //   .then(ids => {
@@ -42,4 +43,11 @@ export function fetchStories(type) {
   );
 
   // .then(ids => console.log(ids));
+}
+
+export function fetchPosts(ids) {
+  return Promise.all(ids.map(fetchItem));
+  // .then(posts =>
+  //   removeDeleted(onlyPosts(removeDead(posts)))
+  // );
 }

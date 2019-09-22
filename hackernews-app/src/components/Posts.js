@@ -1,14 +1,13 @@
 import React from "react";
 import { fetchStories } from "../utils/api";
-import { formatDate, formatDatetime } from "../utils/helpers";
 import Loading from "./Loading";
-import { Link } from "react-router-dom";
+import PostsList from "./PostsList";
 
 class Top extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topStories: [],
+      posts: [],
       loading: true,
       error: false
     };
@@ -16,9 +15,9 @@ class Top extends React.Component {
   componentDidMount() {
     console.log("cdm running top");
     fetchStories(this.props.type)
-      .then(topStories => {
+      .then(posts => {
         this.setState({
-          topStories: topStories,
+          posts: posts,
           loading: false
         });
       })
@@ -32,48 +31,19 @@ class Top extends React.Component {
   }
 
   render() {
-    if (this.state.loading === true) {
+    const { posts, error, loading } = this.state;
+    if (loading === true) {
       return <Loading text="Battling" />;
     }
 
-    if (this.state.error === true) {
+    if (error === true) {
       return <h1>Failed to fetch {this.props.type} stories</h1>;
     }
 
     return (
       <div className="App">
         <h1>Axios vs. Fetch</h1>
-        {this.state.topStories.map(story => {
-          // console.log(story);
-          const {
-            by,
-            descendants,
-            id,
-            kids,
-            score,
-            time,
-            title,
-            type,
-            url
-          } = story;
-
-          var date = formatDate(time);
-          var dateTime = formatDatetime(time);
-
-          return (
-            <div key={id}>
-              <h2>
-                <a href={url} target="_blank">
-                  {title}
-                </a>
-              </h2>
-              <p>
-                by <Link to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime}{" "}
-                with {descendants} comments
-              </p>
-            </div>
-          );
-        })}
+        <PostsList posts={posts}></PostsList>
       </div>
     );
   }
