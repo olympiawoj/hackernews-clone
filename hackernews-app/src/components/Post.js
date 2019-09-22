@@ -1,11 +1,19 @@
 import React from "react";
+
+import Loading from "./Loading";
+import Title from "./Title";
+import PostMetaInfo from "./PostsMetaInfo";
 import queryString from "query-string";
+import { fetchItem, fetchComments } from "../utils/api";
 
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loadingPost: true
+      comments: null,
+      post: null,
+      loadingPost: true,
+      loadingComments: true
     };
   }
 
@@ -16,12 +24,38 @@ export default class Post extends React.Component {
     console.log(this.props);
     const { id } = queryString.parse(this.props.location.search);
     console.log("id", id);
+    fetchItem(id)
+      .then(post => {
+        this.setState({ post, loadingPost: false });
+        return fetchComments(post.kids || []);
+      })
+      .then(comments => {
+        this.setState({ comments, loadingComments: false });
+        console.log("comments", comments);
+      });
   }
 
   render() {
+    const { post, loadingPost } = this.state;
+
     return (
       <>
-        <h1>I am returning a post</h1>
+        {loadingPost === true ? (
+          <Loading text="Fetching post"></Loading>
+        ) : (
+          <div>
+            <h1>
+              <Title url={post.url} title={post.title} id={post.id}></Title>
+            </h1>
+            <PostMetaInfo
+              by={post.by}
+              time={post.time}
+              id={post.id}
+              decendants={post.descendants}
+            ></PostMetaInfo>
+            <p dangerouslySetInnerHTML={{ __html: post.text }} />
+          </div>
+        )}
       </>
     );
   }

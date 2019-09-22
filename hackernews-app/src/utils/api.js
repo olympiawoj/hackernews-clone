@@ -29,6 +29,12 @@ export function fetchItem(id) {
   });
 }
 
+export function fetchComments(ids) {
+  return Promise.all(ids.map(fetchItem)).then(comments =>
+    removeDeleted(onlyComments(removeDead(comments)))
+  );
+}
+
 export function fetchStories(type) {
   const endpoint = `https://hacker-news.firebaseio.com/v0/${type}stories.json?print=pretty`;
   //why return fetch?
