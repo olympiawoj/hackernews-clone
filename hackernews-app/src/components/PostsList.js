@@ -10,7 +10,8 @@ export default function PostsList({ posts }) {
   return (
     <ul>
       {posts.map(post => {
-        const { title, id, url, by, descendants, time } = post;
+        const { title, id, url, by, descendants, time, type } = post;
+        console.log("type of post", type);
         return (
           <li key={id}>
             <Title url={url} title={post.title} id={post.id}></Title>

@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "./Loading";
-import { fetchUser, fetchItem } from "../utils/api";
+import PostsList from "./PostsList";
+import { fetchUser, fetchItem, fetchPosts } from "../utils/api";
 import { formatDate, formatDatetime } from "../utils/helpers";
 import queryString from "query-string";
 
@@ -10,7 +11,8 @@ export default class User extends React.Component {
     this.state = {
       loadingUser: true,
       userInfo: null,
-      posts: null
+      posts: null,
+      loadingPosts: true
     };
   }
   componentDidMount() {
@@ -21,19 +23,24 @@ export default class User extends React.Component {
     const { id } = queryString.parse(this.props.location.search);
     console.log("id", id);
 
-    return fetchUser(id).then(userInfo => {
-      console.log(userInfo);
-      this.setState({
-        userInfo,
-        loadingUser: false,
-        posts: userInfo.submitted.slice(0, 30)
+    fetchUser(id)
+      .then(userInfo => {
+        console.log(userInfo);
+        //userInfo is an object w/ created, id, karma, and submitted
+
+        this.setState({
+          userInfo,
+          loadingUser: false
+        });
+        return fetchPosts(userInfo.submitted.slice(0, 30));
+      })
+      .then(posts => {
+        this.setState({ posts, loadingPosts: false, loadingUser: false });
       });
-      return;
-    });
   }
 
   render() {
-    const { loadingUser, userInfo } = this.state;
+    const { loadingUser, userInfo, posts, loadingPosts } = this.state;
     console.log("user info", userInfo);
     //userInfo has about, created, id, karma,  and submitted which is an array of story IDs
 
@@ -51,7 +58,12 @@ export default class User extends React.Component {
             <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
 
             <h1>Posts</h1>
-            {this.state.posts.map(post => console.log(post))}
+
+            {loadingPosts === true ? (
+              <Loading text="Fetching Posts"></Loading>
+            ) : (
+              <PostsList posts={posts}></PostsList>
+            )}
           </>
         )}
       </>
