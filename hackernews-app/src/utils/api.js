@@ -47,7 +47,7 @@ export function fetchStories(type) {
         return ids.slice(0, 50);
       })
       .then(ids => Promise.all(ids.map(fetchItem)))
-      .then(comments => removeDeleted(onlyComments(removeDead(comments))))
+      .then(comments => removeDeleted(onlyPosts(removeDead(comments))))
     //always create array of promises
     //pass an array of promises to Promises.all
     //   .then(ids => {
