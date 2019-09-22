@@ -2,6 +2,7 @@ import React from "react";
 
 import Loading from "./Loading";
 import Title from "./Title";
+import Comment from "./Comment";
 import PostMetaInfo from "./PostsMetaInfo";
 import queryString from "query-string";
 import { fetchItem, fetchComments } from "../utils/api";
@@ -36,7 +37,7 @@ export default class Post extends React.Component {
   }
 
   render() {
-    const { post, loadingPost } = this.state;
+    const { post, loadingPost, loadingComments } = this.state;
 
     return (
       <>
@@ -55,6 +56,15 @@ export default class Post extends React.Component {
             ></PostMetaInfo>
             <p dangerouslySetInnerHTML={{ __html: post.text }} />
           </div>
+        )}
+        {loadingComments === true ? (
+          <Loading></Loading>
+        ) : (
+          <>
+            {this.state.comments.map(comment => {
+              return <Comment key={comment.id} comment={comment}></Comment>;
+            })}
+          </>
         )}
       </>
     );
