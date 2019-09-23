@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <>
-      <Link to="/">Top</Link>
-      <Link to="/new">New</Link>
-    </>
+    <div className="nav">
+      <Link className="nav-link" to="/">
+        Top
+      </Link>
+      <Link className="nav-link" to="/new">
+        New
+      </Link>
+    </div>
   );
 }
