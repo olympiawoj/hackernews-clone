@@ -7,7 +7,7 @@ import User from "./components/User";
 import Post from "./components/Post";
 
 class App extends React.Component {
-  componentDidMount() {}
+  componentDidMount() { }
   render() {
     return (
       <Router>

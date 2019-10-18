@@ -41,8 +41,7 @@ class Top extends React.Component {
     }
 
     return (
-      <div className="App">
-        <h1>Axios vs. Fetch</h1>
+      <div className="postsContainer">
         <PostsList posts={posts}></PostsList>
       </div>
     );
