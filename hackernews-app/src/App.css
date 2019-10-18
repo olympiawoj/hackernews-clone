@@ -14,7 +14,6 @@ li {
   list-style-type: none;
 }
 
-
 .nav {
   /* border: 1px solid red; */
   display: flex;
@@ -49,10 +48,16 @@ li {
 
 .postMetaText {
   color:#808080;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 .postLink {
   color: black;
+}
 
+.post {
+  background-color: #eeeeee;
+  padding: 5px 5px;
+  border-radius: 5px;
+  margin: 5px
 }

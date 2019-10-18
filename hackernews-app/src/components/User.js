@@ -50,10 +50,10 @@ export default class User extends React.Component {
         ) : (
             <div className="postsContainer">
               <h1>{userInfo.id}</h1>
-              <p>
-                joined {formatDate(userInfo.created)},{" "}
-                {formatDatetime(userInfo.created)} has {userInfo.karma} karma
-            </p>
+              <p className="postMetaText">
+                <strong>joined {formatDate(userInfo.created)},{" "}
+                  {formatDatetime(userInfo.created)}</strong> has <strong>{userInfo.karma} karma</strong>
+              </p>
               <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
 
               <h1>Posts</h1>

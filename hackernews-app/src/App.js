@@ -17,12 +17,14 @@ class App extends React.Component {
             exact
             path="/"
             render={() => <Posts type="top"></Posts>}
-          ></Route>
+          >
+          </Route>
           <Route
             exact
             path="/new"
             render={() => <Posts type="new"></Posts>}
-          ></Route>
+          >
+          </Route>
           <Route path="/post" component={Post}></Route>
           <Route path="/user" component={User}></Route>
         </div>
