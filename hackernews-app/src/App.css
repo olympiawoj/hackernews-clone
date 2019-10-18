@@ -2,7 +2,7 @@
   text-align: center;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 50px;
+  padding: 70px 50px;
   /* border: 1px solid pink; */
 }
 
@@ -12,6 +12,7 @@ ul {
 
 li {
   list-style-type: none;
+  padding-bottom: 10px
 }
 
 .nav {
@@ -36,6 +37,7 @@ li {
   color: #BB2E20;
   text-decoration: none;
   font-weight: bold; 
+
 }
 
 .postTitle:hover {
@@ -44,11 +46,12 @@ li {
 
 .postsContainer {
   text-align: left;
+  line-height: 0.5
 }
 
 .postMetaText {
   color:#808080;
-  font-weight: 550;
+  font-weight: 525
 }
 
 .postLink {
