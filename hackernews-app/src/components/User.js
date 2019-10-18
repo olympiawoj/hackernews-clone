@@ -48,23 +48,25 @@ export default class User extends React.Component {
         {loadingUser === true ? (
           <Loading></Loading>
         ) : (
-          <>
-            <h1>{userInfo.id}</h1>
-            <p>
-              joined {formatDate(userInfo.created)},{" "}
-              {formatDatetime(userInfo.created)} has {userInfo.karma} karma
+            <div className="postsContainer">
+              <h1>{userInfo.id}</h1>
+              <p>
+                joined {formatDate(userInfo.created)},{" "}
+                {formatDatetime(userInfo.created)} has {userInfo.karma} karma
             </p>
-            <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
+              <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
 
-            <h1>Posts</h1>
+              <h1>Posts</h1>
 
-            {loadingPosts === true ? (
-              <Loading text="Fetching Posts"></Loading>
-            ) : (
-              <PostsList posts={posts}></PostsList>
-            )}
-          </>
-        )}
+              {loadingPosts === true ? (
+                <Loading text="Fetching Posts"></Loading>
+              ) : (
+
+                  <PostsList posts={posts}></PostsList>
+
+                )}
+            </div>
+          )}
       </>
     );
   }

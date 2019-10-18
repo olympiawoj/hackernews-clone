@@ -3,7 +3,7 @@
   margin: 0 auto;
   max-width: 1200px;
   padding: 50px;
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
 }
 
 ul {
@@ -16,8 +16,9 @@ li {
 
 
 .nav {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
+  padding-bottom: 25px;
 }
 
 .nav-link {
@@ -36,9 +37,22 @@ li {
   color: #BB2E20;
   text-decoration: none;
   font-weight: bold; 
+}
 
+.postTitle:hover {
+  text-decoration: underline;
 }
 
 .postsContainer {
   text-align: left;
+}
+
+.postMetaText {
+  color:#808080;
+  font-weight: 500;
+}
+
+.postLink {
+  color: black;
+
 }

@@ -8,9 +8,9 @@ export default function PostMetaInfo({ by, time, id, descendants }) {
 
   return (
     <div>
-      <p>
-        by <Link to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime} with{" "}
-        <Link to={`/post?id=${id}`}>{descendants}</Link> comments
+      <p className="postMetaText">
+        by <Link className="postLink" to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime} with{" "}
+        <Link className="postLink" to={`/post?id=${id}`}>{descendants}</Link> comments
       </p>
     </div>
   );
