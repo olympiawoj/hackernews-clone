@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
   return (
     <div className="nav">
-      <Link className="nav-link" to="/">
+      <NavLink activeClassName="active" className="nav-link" exact to="/">
         Top
-      </Link>
-      <Link className="nav-link" to="/new">
+      </NavLink>
+      <NavLink activeClassName="active" className="nav-link" to="/new">
         New
-      </Link>
+      </NavLink>
     </div>
   );
 }

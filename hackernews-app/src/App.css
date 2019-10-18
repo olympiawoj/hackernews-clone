@@ -28,6 +28,10 @@ li {
   padding-right: 10px;
 }
 
+.active {
+  color: #BB2E20;
+}
+
 .postTitle {
   color: #BB2E20;
   text-decoration: none;
