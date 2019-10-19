@@ -20,7 +20,7 @@ export default class User extends React.Component {
     //every component rendered by React Router will be passed the same 3 props from the React Router API - match, location, & history
     console.log(this.props);
     const { id } = queryString.parse(this.props.location.search);
-    console.log("id", id);
+    // console.log("id", id);
 
     fetchUser(id)
       .then(userInfo => {

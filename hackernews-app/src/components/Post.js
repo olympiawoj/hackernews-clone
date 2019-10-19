@@ -32,13 +32,13 @@ export default class Post extends React.Component {
       })
       .then(comments => {
         this.setState({ comments, loadingComments: false });
-        console.log("comments", comments);
+        // console.log("comments", comments);
       });
   }
 
   render() {
     const { post, loadingPost, loadingComments } = this.state;
-    console.log(post)
+    // console.log(post)
 
     return (
       <div className="postsContainer">

@@ -2,7 +2,7 @@
   text-align: center;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 70px 50px;
+  padding:  70px 50px;
   /* border: 1px solid pink; */
 }
 
@@ -27,6 +27,11 @@ li {
   color: inherit;
   text-decoration: none;
   padding-right: 10px;
+}
+
+.btn-clear {
+  border: none;
+  background: transparent;
 }
 
 .active {
