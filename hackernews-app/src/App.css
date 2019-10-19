@@ -75,3 +75,15 @@ li {
   border-radius: 5px;
   margin: 5px
 }
+
+.bg-dark {
+  background-color:  #1C2022;
+}
+
+.text-dark {
+  color: #7F7F7F;
+}
+
+.title-dark {
+  color: #CBCBCB;
+}

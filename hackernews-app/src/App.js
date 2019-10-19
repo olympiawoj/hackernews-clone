@@ -33,7 +33,7 @@ class App extends React.Component {
       //Pass in value to ThemeProvider that will be consumed b y Consumer
       <ThemeProvider value={{ theme: this.state.theme, toggleTheme: this.toggleTheme }}>
         <Router>
-          <div className="App">
+          <div className={`App bg-${this.state.theme}`}>
             <Nav></Nav>
             <Route
               exact

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Title from "./Title";
 import PostMetaInfo from "./PostsMetaInfo";
+import { ThemeConsumer } from "../contexts/theme"
 
 export default function PostsList({ posts }) {
   if (posts.length === 0) {
@@ -17,17 +18,22 @@ export default function PostsList({ posts }) {
         // console.log("type of post", type);
 
         return (
-          <li key={id}>
-            <Title url={url} title={title} id={id}></Title>
-            <PostMetaInfo
-              by={by}
-              time={time}
-              id={id}
-              decendants={descendants}
-            ></PostMetaInfo>
-          </li>
+          <ThemeConsumer>
+            {({ theme }) => (
+              <li key={id} >
+                <Title url={url} title={title} id={id} theme={theme} ></Title>
+                <PostMetaInfo
+                  by={by}
+                  time={time}
+                  id={id}
+                  decendants={descendants}
+                ></PostMetaInfo>
+              </li>
+            )}
+          </ThemeConsumer>
         );
       })}
     </ul>
+
   );
 }

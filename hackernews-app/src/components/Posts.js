@@ -2,6 +2,7 @@ import React from "react";
 import { fetchStories } from "../utils/api";
 import Loading from "./Loading";
 import PostsList from "./PostsList";
+import { ThemeConsumer } from "../contexts/theme"
 
 class Top extends React.Component {
   constructor(props) {
@@ -41,9 +42,13 @@ class Top extends React.Component {
     }
 
     return (
-      <div className="postsContainer">
-        <PostsList posts={posts}></PostsList>
-      </div>
+      <ThemeConsumer>
+        {({ theme }) => (
+          <div className={`postsContainer bg-${theme}`}>
+            <PostsList posts={posts}></PostsList>
+          </div>
+        )}
+      </ThemeConsumer>
     );
   }
 }
