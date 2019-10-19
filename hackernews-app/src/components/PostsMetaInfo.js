@@ -12,8 +12,8 @@ export default function PostMetaInfo({ by, time, id, decendants }) {
       {({ theme }) => (
         <div>
           <p className={`postMetaText  text-${theme}`} >
-            by <Link className="postLink" to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime} with {' '}
-            <Link className="postLink" to={`/post?id=${id}`}>{decendants}</Link> comments
+            by <Link className={`postLink link-${theme}`} to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime} with {' '}
+            <Link className={`postLink link-${theme}`} to={`/post?id=${id}`}>{decendants}</Link> comments
   </p>
         </div>
       )}

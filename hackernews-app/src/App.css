@@ -40,10 +40,6 @@ li {
   background: transparent;
 }
 
-.active {
-  color: #BB2E20;
-}
-
 .postTitle {
   color: #BB2E20;
   text-decoration: none;
@@ -86,4 +82,11 @@ li {
 
 .title-dark {
   color: #CBCBCB;
+}
+
+.link-dark {
+  color: #BEBEBE;
+}
+.active {
+  color: #BB2E20;
 }

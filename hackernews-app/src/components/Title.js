@@ -11,7 +11,7 @@ export default function Title({ url, title, id, theme }) {
 
       <a className={`postTitle title-${theme}`} href={url}>{title}</a>
     ) : (
-      <Link className="postTitle" to={`post?id=${id}`}>{title}</Link>
+      <Link className={`postTitle title-${theme}`} to={`post?id=${id}`}>{title}</Link>
     )
 
 }

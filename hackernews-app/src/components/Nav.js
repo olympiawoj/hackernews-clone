@@ -10,10 +10,10 @@ export default function Nav() {
         return (
           <div className="nav space-between">
             <div>
-              <NavLink activeClassName="active" className="nav-link" exact to="/">
+              <NavLink activeClassName="active" className={`nav-link link-${theme}`} exact to="/">
                 Top
         </NavLink>
-              <NavLink activeClassName="active" className="nav-link" to="/new">
+              <NavLink activeClassName="active" className={`nav-link link-${theme}`} to="/new">
                 New
         </NavLink>
             </div>
