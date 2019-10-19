@@ -8,13 +8,15 @@ export default function Nav() {
     <ThemeConsumer>
       {({ theme, toggleTheme }) => {
         return (
-          <div className="nav">
-            <NavLink activeClassName="active" className="nav-link" exact to="/">
-              Top
+          <div className="nav space-between">
+            <div>
+              <NavLink activeClassName="active" className="nav-link" exact to="/">
+                Top
         </NavLink>
-            <NavLink activeClassName="active" className="nav-link" to="/new">
-              New
+              <NavLink activeClassName="active" className="nav-link" to="/new">
+                New
         </NavLink>
+            </div>
             {/* VSCode use : and then start searching for emoji */}
             <button className="btn-clear " style={{ fontSize: 30 }} onClick={toggleTheme} >
               {theme === "light" ? "🔦" : "💡"}
@@ -22,6 +24,6 @@ export default function Nav() {
 
           </div>)
       }}
-    </ThemeConsumer>
+    </ThemeConsumer >
   );
 }
