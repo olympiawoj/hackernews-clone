@@ -33,10 +33,8 @@ class Top extends React.Component {
 
   render() {
     const { posts, error, loading } = this.state;
+    //this is where my error is happening...
 
-    if (loading === true) {
-      return <Loading text="Battling" />;
-    }
 
     if (error === true) {
       return <h1>Failed to fetch {this.props.type} stories</h1>;
@@ -46,6 +44,8 @@ class Top extends React.Component {
       <ThemeConsumer>
         {({ theme }) => (
           <div className={`postsContainer bg-${theme}`}>
+            {(loading === true) ? <Loading text="Loading posts list" /> : null
+            }
             <PostsList posts={posts}></PostsList>
           </div>
         )}
