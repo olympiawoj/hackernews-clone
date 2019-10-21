@@ -1,23 +1,25 @@
 import React from "react";
+import { ThemeConsumer } from "../contexts/theme"
 
 class Loading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: "Loading"
+      content: this.props.text
     };
   }
 
   componentDidMount() {
     console.log("CDM running in Loading");
+    const { text } = this.state;
 
     this.interval = window.setInterval(() => {
       console.log("running every 1s");
-      this.state.content === "Loading..."
-        ? this.setState({ content: "Loading" })
+      this.state.content === text + "..."
+        ? this.setState({ content: text })
         : this.setState(({ content }) => ({
-            content: content + "."
-          }));
+          content: content + "."
+        }));
     }, 300);
   }
 
@@ -28,9 +30,13 @@ class Loading extends React.Component {
 
   render() {
     return (
-      <>
-        <h1>{this.state.content}</h1>
-      </>
+      <ThemeConsumer>
+        {({ theme }) => (
+          <div className={theme}>
+            <h1>{this.state.content}</h1>
+          </div >
+        )}
+      </ThemeConsumer>
     );
   }
 }

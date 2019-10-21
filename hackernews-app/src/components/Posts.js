@@ -33,6 +33,7 @@ class Top extends React.Component {
 
   render() {
     const { posts, error, loading } = this.state;
+
     if (loading === true) {
       return <Loading text="Battling" />;
     }

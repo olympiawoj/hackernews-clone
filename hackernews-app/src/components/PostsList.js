@@ -12,14 +12,15 @@ export default function PostsList({ posts }) {
 
 
   return (
-    <ul>
-      {posts.map(post => {
-        const { title, id, url, by, descendants, time, type } = post;
-        // console.log("type of post", type);
+    <ThemeConsumer>
+      {({ theme }) => (
+        <ul className={`bg-${theme}`}>
+          {posts.map(post => {
+            const { title, id, url, by, descendants, time, type } = post;
+            // console.log("type of post", type);
 
-        return (
-          <ThemeConsumer>
-            {({ theme }) => (
+            return (
+
               <li key={id} >
                 <Title url={url} title={title} id={id} theme={theme} ></Title>
                 <PostMetaInfo
@@ -29,11 +30,12 @@ export default function PostsList({ posts }) {
                   decendants={descendants}
                 ></PostMetaInfo>
               </li>
-            )}
-          </ThemeConsumer>
-        );
-      })}
-    </ul>
+            )
+
+          })}
+        </ul>
+      )}
+    </ThemeConsumer>
 
   );
 }

@@ -32,25 +32,27 @@ class App extends React.Component {
     return (
       //Pass in value to ThemeProvider that will be consumed b y Consumer
       <ThemeProvider value={{ theme: this.state.theme, toggleTheme: this.toggleTheme }}>
-        <Router>
-          <div className={`App bg-${this.state.theme}`}>
-            <Nav></Nav>
-            <Route
-              exact
-              path="/"
-              render={() => <Posts type="top"></Posts>}
-            >
-            </Route>
-            <Route
-              exact
-              path="/new"
-              render={() => <Posts type="new"></Posts>}
-            >
-            </Route>
-            <Route path="/post" component={Post}></Route>
-            <Route path="/user" component={User}></Route>
-          </div>
-        </Router>
+        <div className={this.state.theme}>
+          <Router>
+            <div className={`App bg-${this.state.theme}`}>
+              <Nav></Nav>
+              <Route
+                exact
+                path="/"
+                render={() => <Posts type="top"></Posts>}
+              >
+              </Route>
+              <Route
+                exact
+                path="/new"
+                render={() => <Posts type="new"></Posts>}
+              >
+              </Route>
+              <Route path="/post" component={Post}></Route>
+              <Route path="/user" component={User}></Route>
+            </div>
+          </Router>
+        </div>
       </ThemeProvider>
     );
   }

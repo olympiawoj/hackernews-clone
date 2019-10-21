@@ -3,7 +3,8 @@
   margin: 0 auto;
   max-width: 1200px;
   padding:  70px 50px;
-  /* border: 1px solid pink; */
+  border: 1px solid pink;
+  box-sizing: border-box;
 }
 
 ul {
@@ -30,7 +31,7 @@ li {
 .nav-link {
   font-size: 18px;
   font-weight: bold;
-  color: inherit;
+  color: black;
   text-decoration: none;
   padding-right: 10px;
 }
@@ -53,7 +54,9 @@ li {
 
 .postsContainer {
   text-align: left;
-  line-height: 0.5
+  line-height: 0.5;
+  height: 100%;
+  border: 10px solid orange;
 }
 
 .postMetaText {
@@ -69,12 +72,19 @@ li {
   background-color: #eeeeee;
   padding: 5px 5px;
   border-radius: 5px;
-  margin: 5px
+  margin: 5px;
 }
+
+.dark {
+    background:  #1C2022;
+    height: 100%;
+
+} 
 
 .bg-dark {
   background-color:  #1C2022;
-}
+  min-height: 100%;
+} 
 
 .text-dark {
   color: #7F7F7F;
@@ -87,6 +97,7 @@ li {
 .link-dark {
   color: #BEBEBE;
 }
+
 .active {
   color: #BB2E20;
 }

@@ -10,7 +10,7 @@ export default function PostMetaInfo({ by, time, id, decendants }) {
   return (
     <ThemeConsumer>
       {({ theme }) => (
-        <div>
+        <div className={`bg-${theme}`}>
           <p className={`postMetaText  text-${theme}`} >
             by <Link className={`postLink link-${theme}`} to={`/user?id=${by}`}>{by}</Link> on {date}, {dateTime} with {' '}
             <Link className={`postLink link-${theme}`} to={`/post?id=${id}`}>{decendants}</Link> comments

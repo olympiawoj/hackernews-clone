@@ -33,6 +33,7 @@ export default class Post extends React.Component {
       .then(comments => {
         this.setState({ comments, loadingComments: false });
         // console.log("comments", comments);
+
       });
   }
 
@@ -43,9 +44,11 @@ export default class Post extends React.Component {
     return (
       <div className="postsContainer">
         {loadingPost === true ? (
-          <Loading text="Fetching post"></Loading>
+
+          <Loading text="Fetching post">
+          </Loading>
         ) : (
-            <div>
+            <div >
               <h1 >
                 <Title url={post.url} title={post.title} id={post.id}></Title>
               </h1>
