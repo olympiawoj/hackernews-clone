@@ -31,6 +31,12 @@ body,
   box-sizing: border-box;
 }
 
+p {
+  font-size: 18px;
+  font-weight: 450;
+  line-height: 9px;
+}
+
 ul {
   padding: 0;
   line-height: 8px;

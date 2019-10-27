@@ -52,14 +52,14 @@ export default class User extends React.Component {
               <Loading text="Fetching user"></Loading>
             ) : (
                 <div className="postsContainer">
-                  <h1 className={`textwhite-${theme}`}>{userInfo.id}</h1>
+                  <h1 className={`title-${theme}`}>{userInfo.id}</h1>
                   <p className="postMetaText">
                     <strong>joined {formatDate(userInfo.created)},{" "}
                       {formatDatetime(userInfo.created)}</strong> has <strong>{userInfo.karma} karma</strong>
                   </p>
                   <p className={`title-${theme}`} dangerouslySetInnerHTML={{ __html: userInfo.about }} />
 
-                  <h1 className={`textwhite-${theme}`}>Posts</h1>
+                  <h1 className={`title-${theme}`}> Posts</h1>
 
                   {loadingPosts === true ? (
                     <Loading text="Fetching Posts"></Loading>
