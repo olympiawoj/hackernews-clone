@@ -51,7 +51,6 @@ li {
 .nav {
   /* border: 1px solid red; */
   display: flex;
-  padding-bottom: 25px;
 }
 
 .nav-link {
