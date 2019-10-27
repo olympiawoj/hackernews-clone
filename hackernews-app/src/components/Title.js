@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ThemeConsumer } from "../contexts/theme"
 import "../App.css"
+import { ThemeConsumer } from "../contexts/theme"
 
 export default function Title({ url, title, id, theme }) {
   // console.log(url)

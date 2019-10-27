@@ -4,6 +4,7 @@ import PostsList from "./PostsList";
 import { fetchUser, fetchItem, fetchPosts } from "../utils/api";
 import { formatDate, formatDatetime } from "../utils/helpers";
 import queryString from "query-string";
+import { ThemeConsumer } from "../contexts/theme"
 
 export default class User extends React.Component {
   constructor(props) {
@@ -44,30 +45,34 @@ export default class User extends React.Component {
     //userInfo has about, created, id, karma,  and submitted which is an array of story IDs
 
     return (
-      <>
-        {loadingUser === true ? (
-          <Loading text="Fetching user"></Loading>
-        ) : (
-            <div className="postsContainer">
-              <h1>{userInfo.id}</h1>
-              <p className="postMetaText">
-                <strong>joined {formatDate(userInfo.created)},{" "}
-                  {formatDatetime(userInfo.created)}</strong> has <strong>{userInfo.karma} karma</strong>
-              </p>
-              <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
+      <ThemeConsumer>
+        {({ theme }) => (
+          <>
+            {loadingUser === true ? (
+              <Loading text="Fetching user"></Loading>
+            ) : (
+                <div className="postsContainer">
+                  <h1 className={`textwhite-${theme}`}>{userInfo.id}</h1>
+                  <p className="postMetaText">
+                    <strong>joined {formatDate(userInfo.created)},{" "}
+                      {formatDatetime(userInfo.created)}</strong> has <strong>{userInfo.karma} karma</strong>
+                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
 
-              <h1>Posts</h1>
+                  <h1 className={`textwhite-${theme}`}>Posts</h1>
 
-              {loadingPosts === true ? (
-                <Loading text="Fetching Posts"></Loading>
-              ) : (
+                  {loadingPosts === true ? (
+                    <Loading text="Fetching Posts"></Loading>
+                  ) : (
 
-                  <PostsList posts={posts}></PostsList>
+                      <PostsList posts={posts}></PostsList>
 
-                )}
-            </div>
-          )}
-      </>
+                    )}
+                </div>
+              )}
+          </>
+        )}
+      </ThemeConsumer>
     );
   }
 }
