@@ -25,9 +25,9 @@ body {
 .App {
   text-align: center;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1276px;
+  padding-top: 70px;
   /* min-height: 100%; */
-  padding:  70px 50px;
   box-sizing: border-box;
   border: 5px solid red; 
 }
@@ -54,7 +54,7 @@ li {
 }
 
 .nav-link {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: black;
   text-decoration: none;
@@ -70,6 +70,7 @@ li {
   color: #BB2E20;
   text-decoration: none;
   font-weight: bold; 
+  font-size: 18px;
 
 }
 
@@ -90,6 +91,7 @@ li {
   color:#808080;
   font-weight: 525; 
   padding-bottom: 15px;
+  font-size: 18px;
 }
 
 .postLink {

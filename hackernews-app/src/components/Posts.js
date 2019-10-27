@@ -44,7 +44,7 @@ class Top extends React.Component {
       <ThemeConsumer>
         {({ theme }) => (
           <div className={`postsContainer bg-${theme}`}>
-            {(loading === true) ? <Loading text="Loading posts list" /> : null
+            {(loading === true) ? <Loading text="Loading" /> : null
             }
             <PostsList posts={posts}></PostsList>
           </div>
