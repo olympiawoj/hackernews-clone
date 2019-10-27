@@ -46,7 +46,7 @@ export default class User extends React.Component {
     return (
       <>
         {loadingUser === true ? (
-          <Loading></Loading>
+          <Loading text="Fetching user"></Loading>
         ) : (
             <div className="postsContainer">
               <h1>{userInfo.id}</h1>
