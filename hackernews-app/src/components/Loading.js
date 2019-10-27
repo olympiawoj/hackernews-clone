@@ -33,7 +33,7 @@ class Loading extends React.Component {
       <ThemeConsumer>
         {({ theme }) => (
           <div className={theme}>
-            <h1>{this.state.content}</h1>
+            <h1 className={`textwhite-${theme}`}>{this.state.content}</h1>
           </div >
         )}
       </ThemeConsumer>

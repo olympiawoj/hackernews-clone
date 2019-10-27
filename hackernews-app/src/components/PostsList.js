@@ -5,15 +5,15 @@ import PostMetaInfo from "./PostsMetaInfo";
 import { ThemeConsumer } from "../contexts/theme"
 
 export default function PostsList({ posts }) {
-  if (posts.length === 0) {
-    return <p>This user hasn't posted yet</p>;
-  }
-
+  // if (posts.length === 0) {
+  //   return <p>This user hasn't posted yet</p>;
+  // }
 
 
   return (
     <ThemeConsumer>
       {({ theme }) => (
+
         <ul className={`bg-${theme}`}>
           {posts.map(post => {
             const { title, id, url, by, descendants, time, type } = post;
@@ -34,6 +34,7 @@ export default function PostsList({ posts }) {
 
           })}
         </ul>
+
       )}
     </ThemeConsumer>
 
