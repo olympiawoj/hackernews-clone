@@ -57,7 +57,7 @@ export default class User extends React.Component {
                     <strong>joined {formatDate(userInfo.created)},{" "}
                       {formatDatetime(userInfo.created)}</strong> has <strong>{userInfo.karma} karma</strong>
                   </p>
-                  <p dangerouslySetInnerHTML={{ __html: userInfo.about }} />
+                  <p className={`title-${theme}`} dangerouslySetInnerHTML={{ __html: userInfo.about }} />
 
                   <h1 className={`textwhite-${theme}`}>Posts</h1>
 
