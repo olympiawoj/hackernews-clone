@@ -36,7 +36,6 @@ body,
 p {
   font-size: 18px;
   font-weight: 450;
-  line-height: 9px;
 }
 
 ul {
@@ -47,7 +46,7 @@ ul {
 li {
   list-style-type: none;
   padding-bottom: 10px
-  line-height
+
 }
 
 .space-between {
