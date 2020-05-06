@@ -15,7 +15,7 @@
 2. Run `npm install` and then `npm start`
 
 
-## Made with Help Of:
+## Tech Stack:
 - [react](https://reactjs.org/)
 - [react-router](https://reacttraining.com/react-router/web/guides/quick-start)
 
