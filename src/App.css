@@ -25,7 +25,7 @@ body,
 .App {
   text-align: center;
   margin: 0 auto;
-  width: 800px;
+  max-width: 1200px;
   padding-top: 70px;
   padding-left: 25px;
   padding-right: 25px;
@@ -34,7 +34,7 @@ body,
 }
 
 p {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 450;
 }
 
@@ -82,6 +82,16 @@ li {
   font-size: 15px;
 
 }
+
+.postCommentTitle {
+  color: #BB2E20;
+  text-decoration: none;
+  font-weight: 780; 
+  font-size: 30px;
+}
+
+
+
 
 .postTitle:hover {
   text-decoration: underline;
@@ -159,5 +169,5 @@ li {
 }
 
 .center {
-  text-align: center;
+  text-align: center
 }

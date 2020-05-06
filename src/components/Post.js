@@ -38,7 +38,7 @@ export default class Post extends React.Component {
   }
 
   render() {
-    const { post, loadingPost, loadingComments } = this.state;
+    const { post, loadingPost, loadingComments, comments } = this.state;
     // console.log(post)
 
     return (
@@ -51,7 +51,7 @@ export default class Post extends React.Component {
             <>
               <div >
                 <h1 >
-                  <Title url={post.url} title={post.title} id={post.id}></Title>
+                  <Title url={post.url} title={post.title} id={post.id} comments={comments}></Title>
                 </h1>
                 <PostMetaInfo
                   by={post.by}
