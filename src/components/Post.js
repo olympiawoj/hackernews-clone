@@ -43,34 +43,33 @@ export default class Post extends React.Component {
 
     return (
       <div className="postsContainer">
-        {loadingPost === true ? (
+        {loadingPost || loadingComments === true ? (
 
-          <Loading text="Fetching post">
+          <Loading text="Loading">
           </Loading>
         ) : (
-            <div >
-              <h1 >
-                <Title url={post.url} title={post.title} id={post.id}></Title>
-              </h1>
-              <PostMetaInfo
-                by={post.by}
-                time={post.time}
-                id={post.id}
-                decendants={post.descendants}
-              >
-              </PostMetaInfo>
-              <p dangerouslySetInnerHTML={{ __html: post.text }} />
-            </div>
-          )}
-        {loadingComments === true ? (
-          <Loading></Loading>
-        ) : (
             <>
-              {this.state.comments.map(comment => {
-                return <Comment key={comment.id} comment={comment}></Comment>;
-              })}
+              <div >
+                <h1 >
+                  <Title url={post.url} title={post.title} id={post.id}></Title>
+                </h1>
+                <PostMetaInfo
+                  by={post.by}
+                  time={post.time}
+                  id={post.id}
+                  decendants={post.descendants}
+                >
+                </PostMetaInfo>
+                <p dangerouslySetInnerHTML={{ __html: post.text }} />
+              </div>
+              <div>
+                {this.state.comments.map(comment => {
+                  return <Comment key={comment.id} comment={comment}></Comment>;
+                })}
+              </div>
             </>
           )}
+
       </div>
     );
   }
