@@ -3,13 +3,13 @@ body,
 #app, #root {
   margin: 0;
   height: 100%;
-  /* width: 100%; */
   margin: 0px;
   padding: 0px;
-  overflow: auto
-
+  overflow: auto;
   
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
+
 
 /* html {
   border: 10px solid pink;
@@ -25,16 +25,17 @@ body,
 .App {
   text-align: center;
   margin: 0 auto;
-  max-width: 1276px;
+  max-width: 1200px;
   padding-top: 70px;
+  padding-left: 25px;
+  padding-right: 25px;
   /* min-height: 100%; */
   box-sizing: border-box;
 }
 
 p {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 450;
-  line-height: 9px;
 }
 
 ul {
@@ -45,7 +46,7 @@ ul {
 li {
   list-style-type: none;
   padding-bottom: 10px
-  line-height
+
 }
 
 .space-between {
@@ -57,10 +58,12 @@ li {
 .nav {
   /* border: 1px solid red; */
   display: flex;
+  /* margin: 0 auto; */
+
 }
 
 .nav-link {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: bold;
   color: black;
   text-decoration: none;
@@ -76,9 +79,19 @@ li {
   color: #BB2E20;
   text-decoration: none;
   font-weight: bold; 
-  font-size: 18px;
+  font-size: 15px;
 
 }
+
+.postCommentTitle {
+  color: #BB2E20;
+  text-decoration: none;
+  font-weight: 780; 
+  font-size: 30px;
+}
+
+
+
 
 .postTitle:hover {
   text-decoration: underline;
@@ -86,7 +99,9 @@ li {
 
 .postsContainer {
   text-align: left;
+  padding: 0px;
   /* border: 4px solid green; */
+
 }
 
 .postsHeight {
@@ -97,7 +112,7 @@ li {
   color:#808080;
   font-weight: 525; 
   padding-bottom: 15px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .postLink {
@@ -122,6 +137,12 @@ li {
   min-height: 100%;
 } 
 
+.bg-medium-dark{
+  background-color:  rgba(128, 128, 128, 0.1411764705882353);
+  padding: 25px
+
+}
+
 .text-dark {
   color: #7F7F7F;
 }
@@ -138,6 +159,15 @@ li {
   color: #BB2E20;
 }
 
-.textwhite-dark{
-  color: white;
+.text-light-dark{
+  color: #DADADA
+}
+
+
+.comment{
+  margin: 100px
+}
+
+.center {
+  text-align: center
 }
