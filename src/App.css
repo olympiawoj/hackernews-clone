@@ -123,6 +123,12 @@ li {
   min-height: 100%;
 } 
 
+.bg-medium-dark{
+  background-color:  rgba(128, 128, 128, 0.1411764705882353);
+  padding: 25px
+
+}
+
 .text-dark {
   color: #7F7F7F;
 }
@@ -139,6 +145,11 @@ li {
   color: #BB2E20;
 }
 
-.textwhite-dark{
-  color: white;
+.text-light-dark{
+  color: #DADADA
+}
+
+
+.comment{
+  margin: 100px
 }
